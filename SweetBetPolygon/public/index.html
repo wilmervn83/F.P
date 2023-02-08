@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Sweet Bet | Gambling peer to peer, a delicious way to earn ether</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Gambling based on the chain of blocks ethereum."/>
+    <meta charset="utf-8">
+    <meta name="Distribution" content="Global"/>
+    <meta name="keywords" content="Gambling, Dapp, Ethereum"/>
+    <meta http-equiv="expires" content="21600"/>
+    <meta name="Robots" content="index, follow" />
+	<link rel="shortcut icon" type="image/icon" href="images/favicon.ico"><link rel="icon" href="Images/favicon.ico" type="image/icon">
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+   
+  
+    
+  <style>
+       /* Center the loader */
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+   margin: -75px 0 0 -75px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+ 
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom	;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+ 
+}
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+      
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      background-color: #FCB0FC;
+      font-size: 20px;
+      padding-bottom: 0;
+		border: none;
+    }
+       .container {
+          margin-top: 120px;
+		  
+      }
+     
+       
+      
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #A28487;
+      padding: 25px;
+      color: white;
+      font-size: 18px;
+    }
+      
+      body {
+           background-color: #ffffcc;
+           font-family: 'Acme', sans-serif;
+		 
+      }
+      
+
+	          .button0 {
+  background:url('Images/boton0.png') no-repeat; 
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-shadow: 0 6px #999;
+  display: block;
+  margin: auto;
+  width: 275px;
+  height: 83px;
+  border-radius: 16px;
+}
+	  .button1 {
+  background:url('Images/boton1.png') no-repeat; 
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-shadow: 0 6px #999;
+  display: block;
+  margin: auto;
+  width: 275px;
+  height: 83px;
+  border-radius: 16px;
+}
+	  .button2 {
+  background:url('Images/boton2.png') no-repeat; 
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-shadow: 0 6px #999;
+  display: block;
+  margin: auto;
+  width: 275px;
+  height: 83px;
+  border-radius: 16px;
+}
+	  .button3 {
+  background:url('Images/boton3.png') no-repeat; 
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-shadow: 0 6px #999;
+  display: block;
+  margin: auto;
+  width: 275px;
+  height: 83px;
+  border-radius: 16px;
+}
+	  
+	  .button0:hover {
+     box-shadow: 0 9px 9px 0 rgba(255,255,252,1);
+      -moz-transform:scale(1.05); /*scale up image 1.03x*/
+            transform:scale(1.05);
+            -o-transform:scale(1.05);   
+            }
+	  .button1:hover {
+     box-shadow: 0 9px 9px 0 rgba(255,255,252,1);
+      -moz-transform:scale(1.05); /*scale up image 1.03x*/
+            transform:scale(1.05);
+            -o-transform:scale(1.05);   
+            }
+	  .button2:hover {
+     box-shadow: 0 9px 9px 0 rgba(255,255,252,1);
+      -moz-transform:scale(1.05); /*scale up image 1.03x*/
+            transform:scale(1.05);
+            -o-transform:scale(1.05);   
+            }
+	  .button3:hover {
+     box-shadow: 0 9px 9px 0 rgba(255,255,252,1);
+      -moz-transform:scale(1.05); /*scale up image 1.03x*/
+            transform:scale(1.05);
+            -o-transform:scale(1.05);   
+            }
+	  .button0:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+       .button1:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+	   .button2:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+	   .button3:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+ .characteristics {
+            max-width: 500px;
+            max-height: 526px;
+            display: block;
+            margin: auto;
+            position: relative;
+        }
+
+</style>
+         <script>
+        
+        var myVar;
+
+function myFunction() {
+    myVar = setTimeout(showPage, 1000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+</script>
+    
+
+</head>
+<body onload="myFunction()" style="margin:0;">
+	<img src="Images/loader.png" id="loader">
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+    
+!-- Navbar (sit on top) -->
+<div class="w3-top  ">
+  <div class="w3-bar w3-padding w3-card " style=" background-color: #FCB0FC">
+  
+	<a href="Games.html" class="w3-bar-item"><img id="logo" src="Images/logotipo2.png"></a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small w3-margin-top " style="font-size: 20px">
+      <a href="#Games" class="w3-bar-item w3-btn">Games</a>
+      <a href="#HowToWork" class="w3-bar-item w3-btn">How To Work</a>
+      <a href="#FAQ" class="w3-bar-item w3-btn">FAQ</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:2800px;" id="home">
+  <img class="w3-image" src="Images/fondo.png" alt="Architecture" width="100%" height="734">
+ 
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px; background-color: #EFD6FD">
+
+  <!-- Games Section -->
+  <div class="w3-container" style=" padding-top: 60px" id="Games">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16" style="font-size: 30px;  font-family: 'Acme', sans-serif;color: #F85EFC">Games</h3>
+  </div>
+
+  <div class="w3-row-padding">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+         <a href="Donut.html" style="text-decoration:none"><button class="button0"></button></a>
+		   <h3>Strawberry Donut</h3>
+      <p class="w3-opacity">5 Players</p>
+      <p>Play with four other players. Four of you will receive 120% of your bets! The winning chance is more than 80%, otherwise you have chance to win jackpot!.</p>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <a href="Donut1.html" style="text-decoration:none"><button class="button1"></button></a>
+		  <h3>Chocolate Donut</h3>
+      <p class="w3-opacity">4 Players </p>
+      <p>Play with three other players. Three of you will receive 128% of your bets! The chance to win is more than 75%, otherwise, you have the chance to win the jackpot!</p>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+         <a href="Donut2.html" style="text-decoration:none"><button class="button2"></button></a>
+		  <h3>Vanilla Donut</h3>
+      <p class="w3-opacity">3 Players </p>
+      <p>
+Play with two other players. Two of you will receive 144% of your bets! The chance to win is more than 66%, otherwise, you have the chance to win the jackpot!</p>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <a href="Donut3.html" style="text-decoration:none"><button class="button3"></button></a>
+		  <h3>Mixed Donut</h3>
+      <p class="w3-opacity">2 Players </p>
+      <p>
+Play against another player. One of you will receive 190% of your bet! The chance of winning is 50%, otherwise, you have the chance to win the jackpot!</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- How To Work Section -->
+  <div class="w3-container" style=" padding-top: 60px; font-size: 25px;  font-family: 'Acme', sans-serif" id="HowToWork">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16" style="font-size: 30px;  font-family: 'Acme', sans-serif; color: #F85EFC">How To Work</h3>
+    <p>This is a fair game peer to peer in an intelligent contract to multiply your Matic. Simply choose the size of the bet and play against other players, depending on the game you choose. Only one of you will be the unfortunate and the rest will win! </p>
+		
+    <p>The game allows you to multiply your bets by playing against other players. When placing the bet, enter the group of other players who have made the same bet. To place the bet, send the amount of the bet to the address of the contract. If you send more, the contract will return the change. As soon as the number of players in your group reaches the maximum, the draw begins! </p>
+   
+    <p>Upon entering the group, each player places a piece of candy in the donut. At the time of the draw, the donut will start spinning and when it stops, Homer will bite into the donut and indicate the unlucky player of the round. All those who are lucky will receive their bet + X% of gain according to each type of game. </p>
+
+    <p>If you get scared long before the draw, you can leave the game. To cancel your bet, you must click on the cancel bet button. You cancel one of your bets per transaction.  If you have multiple bets, repeat the procedure up to the number of bets placed. <b style="color: red">Attention! Only 99% of your bet is returned.</b>
+    </p><br>
+	  
+	    <h3 style="font-size: 30px;  font-family: 'Acme', sans-serif; color: #F85EFC">Game Features</h3><br>
+	  <p>Example: Strawberry Donut</p>
+	    <img src="Images/characteristics.png" class="characteristics" >
+  </div>
+
+
+
+  <!-- FAQ Section -->
+  <div class="w3-container" style=" padding-top: 60px" id="FAQ">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16" style="font-size: 30px;  font-family: 'Acme', sans-serif; color: #F85EFC">FAQ</h3>
+     <div class="panel-group" id="accordion" >
+    <div class="panel panel-default" style=" background-color: #FCB0FC">
+      <div class="panel-heading" style=" background-color: #FCB0FC">
+        <h4 class="panel-title" style="font-size: 26px">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+What is the probability that he wins?</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body" style="font-size: 20px">The possibilities of winning are: 80% in the strawberry donut. 75% on the chocolate donut. 66% in the vanilla donut and 50% in the mixed donut. Consequently, the probability of losing is less than 20%, 25%, 34% and 50% respectively. At the same time, even if you are the unlucky one, you still have the chance to win the jackpot (2% for the half of the jackpot, 0.2% for the jackpot), which can make you a real winner.
+Important! All investments in cryptocurrency are high risk! Do not invest in projecting your last loans or loan funds.</div>
+      </div>
+    </div>
+    <div class="panel panel-default" style=" background-color: #FCB0FC">
+      <div class="panel-heading" style=" background-color: #FCB0FC">
+        <h4 class="panel-title" style="font-size: 26px">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">How is the unlucky player selected?</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body" style="font-size: 20px">The selection is made randomly from an unknown hash at the time of the draw, and there is no real way to influence the outcome either by the players or by the developers. Developers are engaged in marketing and technical support only. Developers can not influence game results.</div>
+      </div>
+    </div>
+    <div class="panel panel-default" style=" background-color: #FCB0FC">
+      <div class="panel-heading" style=" background-color: #FCB0FC">
+        <h4 class="panel-title" style="font-size: 26px">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">What is the guarantee that I will receive what I won playing?</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body" style="font-size: 20px">The game smart contract is deployed int Polygon blockchain. It is absolutely and fully automated. No administrative actions are required to make payouts. At all! The contract does not even have administrative functions. The contract creator does not have access to the code and data. The contract can not be changed or deleted. Funds sent on contract balance are distributed among participants, strictly following rules described therein, and cannot be withdrawn by any third party.
+</div>
+      </div>
+    </div>
+  </div> 
+  </div>
+  
+
+
+<!-- End page content -->
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-center w3-padding-16" style=" background-color: #A28487">
+  <p>Copyright © 2023 Sweet Bet</p>
+</footer>
+ </div>
+</body>
+     
+   
+         
+</html>

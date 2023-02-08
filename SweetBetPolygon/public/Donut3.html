@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Mixed Donuts</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+	<link rel="shortcut icon" type="image/icon" href="images/favicon.ico"><link rel="icon" href="images3/favicon.ico" type="Image/icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   	 <script language="javascript" type="text/javascript" src="dist/timeago.min.js"></script>
+	 <script src="https://cdn.jsdelivr.net/npm/@alch/alchemy-web3@latest/dist/alchemyWeb3.min.js"></script>
+	 <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+	 <script src="https://cdn.ethers.io/lib/ethers-5.6.umd.min.js" type="text/javascript"></script>
+	
+	 <script>
+
+		async function getAccount() {
+			const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+
+			window.location.reload();
+		}
+
+	</script>
+    
+   
+   
+    
+  <style>
+       /* Center the loader */
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+   margin: -75px 0 0 -75px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+ 
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom	;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+ 
+}
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+      
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      background-color: #FCB0FC;
+      font-size: 20px;
+      padding-bottom: 0;
+		border: none;
+    }
+       .container {
+          margin-top: 120px;
+		  
+      }
+     
+       
+      
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #A28487;
+      padding: 25px;
+      color: white;
+      font-size: 18px;
+    }
+      
+      body {
+           background-color: #ffffcc;
+           font-family: sans-serif;
+      }
+      
+
+
+
+      
+
+
+
+.show {display: block;}
+  
+   
+        
+.card {
+  background: #EFD6FD;  
+  max-width: 352px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  border-radius: 16px;
+  max-height: 530px;
+  height: 530px;
+
+}
+   
+
+
+.card #button0,#button0-1,#button0-2,#button0-3,#button0-4,#button0-5,#button0-6,#button0-7,#button0-8,#button0-9,#button0-10,#button0-11,#button0-12,#button0-13 {
+  background:url('Images3/play.png') no-repeat; 
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  width: 62px;
+  height: 55px;
+  clear: both;
+  position: relative;
+  top: 258px;
+  display: block;
+  margin: auto;
+    
+}
+	  .card #button1,#button1-1,#button1-2,#button1-3,#button1-4,#button1-5,#button1-6,#button1-7,#button1-8,#button1-9,#button1-10,#button1-11,#button1-12,#button1-13 {
+  background:url('Images3/claim.png') no-repeat; 
+  border: none;
+  outline: 0;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+  font-size: 20px;
+  width: 124px;
+  height: 42px;
+  clear: both;
+  position: relative;
+  top: 295px;
+  display: none;
+  font-family: 'Acme', sans-serif;
+ 
+}
+	  .card #button2,#button2-1,#button2-2,#button2-3,#button2-4,#button2-5,#button2-6,#button2-7,#button2-8,#button2-9,#button2-10,#button2-11,#button2-12,#button2-13 {
+  background:url('Images3/cancel.png') no-repeat; 
+  border: none;
+  outline: 0;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+  font-size: 20px;
+  width: 124px;
+  height: 40px;
+  clear: both;
+  position: relative;
+  top: 253px;
+  display: none;
+  font-family: 'Acme', sans-serif;
+		  
+    
+}
+	  #DonutPlayed {
+  border: solid green;
+  outline: 0;
+  padding: 5px;
+  color: black;
+  background-color: #DEFDD6;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 16px;
+  width: 100px;
+  height: 80px;
+  display: block;
+  margin: 0 auto;
+  pointer-events: none;	
+    
+		  
+		  
+	  }
+	  
+   
+
+
+.card #button0:active {
+
+  transform: translateY(4px);
+}
+	  .card #button0-1:active {
+
+  transform: translateY(4px);
+}
+	  .card #button0-2:active {
+
+  transform: translateY(4px);
+}
+	  .card #button0-3:active {
+
+  transform: translateY(4px);
+}
+	   .card #button0-4:active {
+
+  transform: translateY(4px);
+}
+	   .card #button0-5:active {
+
+  transform: translateY(4px);
+}
+	   .card #button0-6:active {
+
+  transform: translateY(4px);
+}
+	   .card #button0-7:active {
+
+  transform: translateY(4px);
+}
+	   .card #button0-8:active {
+
+  transform: translateY(4px);
+}
+	   .card #button0-9:active {
+
+  transform: translateY(4px);
+}
+	   .card #button0-10:active {
+
+  transform: translateY(4px);
+}
+	   .card #button0-11:active {
+
+  transform: translateY(4px);
+}
+	   .card #button0-12:active {
+
+  transform: translateY(4px);
+}
+	   .card #button0-13:active {
+
+  transform: translateY(4px);
+}
+    
+
+ .card #button1:active {
+
+  transform: translateY(4px);
+    
+}
+  .card #button1-1:active {
+
+  transform: translateY(4px);
+    
+}
+  .card #button1-2:active {
+
+  transform: translateY(4px);
+    
+}
+  .card #button1-3:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button1-4:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button1-5:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button1-6:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button1-7:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button1-8:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button1-9:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button1-10:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button1-11:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button1-12:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button1-13:active {
+
+  transform: translateY(4px);
+    
+}
+	 
+	  .card #button2:active {
+
+  transform: translateY(4px);
+    
+}
+	  .card #button2-1:active {
+
+  transform: translateY(4px);
+    
+}
+	  .card #button2-2:active {
+
+  transform: translateY(4px);
+    
+}
+	  .card #button2-3:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button2-4:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button2-5:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button2-6:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button2-7:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button2-8:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button2-9:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button2-10:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button2-11:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button2-12:active {
+
+  transform: translateY(4px);
+    
+}
+	   .card #button2-13:active {
+
+  transform: translateY(4px);
+    
+}
+	   
+
+        
+       
+        .fa {
+    text-decoration: none;
+    font-size: 30px;
+    color: white;
+}
+        .card:hover {
+            box-shadow: 0.5px 0.5px 2px 2px rgba(107, 106, 106);
+           
+           }
+        .inputField {
+            width: 55px;
+            margin-right: 20px;
+        }
+             
+
+
+
+
+       
+         ul {
+             padding: 20px;
+             font-size: 25px;
+         }
+            iframe {
+           display: block;
+            margin: auto;
+        }
+        
+        .marcas {
+           display: block;
+           text-align: center;
+			
+            
+            
+        }
+        
+        .marcas li {
+            display: inline-block;
+            
+        }
+        
+        .marcas li img {
+            margin-right: 50px;
+            
+        }
+         
+         .w3-bar {
+             
+             color: white;
+         }
+          
+         
+         
+          #cuenta {
+           
+           border: solid 1px grey;
+		     border-left-width: 18px;
+             color: saddlebrown;
+             border-radius: 10px 10px 10px 10px;
+             font-size: 15px;
+			 max-width: 175px;
+           
+       }
+        
+
+	   .enableEthereumButton {
+
+background-color: rgb(9, 116, 9);
+border-radius: 12px;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+
+
+	}
+
+	#cuenta {
+		float: right;
+		border: solid 1px grey;
+		border-left-width: 18px;
+		color: saddlebrown;
+		border-radius: 10px 10px 10px 10px;
+		font-size: 15px;
+		max-width: 175px;
+
+	}
+
+
+	#balance {
+		margin-right: 40px;			
+		float: left;
+		background-color: palegreen;
+		text-align: center;
+		color: black;
+		font-size: 15px;
+		width: 210px;
+		border-radius: 10px 10px 10px 10px;
+	}
+	  #user {
+			 border-radius: 10px 10px 10px 10px;
+			
+		}
+          
+          .sociales {
+            float: right;
+            margin-right: 50px;
+               margin-top: 18px;
+        }
+          .listfooter  {
+             font-size: 17px;
+             margin-left: 50px;
+            
+             
+         }
+         .listfooter1 {
+             font-size: 17px;
+             margin-left: 50px;
+            
+         }
+         .listfooter {
+             float: left;
+         }
+         
+          .listfooter li a:hover,.listfooter1 a:hover  {
+             color: greenyellow;
+              cursor: pointer;
+         }
+         
+         
+         .listfooter li a,.listfooter1 a {
+             color: white;
+         }
+
+.alert {
+    padding: 10px;
+    background-color: #ffdddd;
+    color: black;
+    margin-bottom: 15px;
+    height: 40px;
+     border-left: 6px solid #f44336;
+    border-radius: 6px 6px 6px 6px;
+	font-size: 14px;
+}
+
+.alert.success {background-color:  #ddffdd; border-left: 6px solid #4CAF50; height: 90px;}
+.alert.info {background-color: #e7f3fe; border-left: 6px solid #2196F3;}
+.alert.warning {background-color: #FCE6A7 ; border-left: 6px solid #ff9800; text-align: center; width: 300px; height: 100px; display: block; margin: auto}
+
+.closebtn {
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: lightgray;
+}
+       #buttonallget {
+            display: none;
+        }
+	  #Game0 {
+		  margin: auto;
+		  border: none;
+		  width: 130px;
+		  pointer-events: none;
+		  border-radius: 0 0 16px 16px;
+		  font-size: 25px;
+		  opacity: 0.6;
+		  background: white;
+		  font-family: 'Acme', sans-serif;
+	  }
+	  #JackPot0,#JackPot1,#JackPot2,#JackPot3,#JackPot4,#JackPot5,#JackPot6,#JackPot7,#JackPot8,#JackPot9,#JackPot10,#JackPot11,#JackPot12,#JackPot13 {
+		  background:url('Images3/table.png') no-repeat; 
+		  margin-left: 10px;
+		  margin-top: 7px;
+		  border: none;
+		  width: 120px;
+		  pointer-events: none;
+		  border-radius: 10px;
+		  font-size: 20px;
+		  height: 61px;
+		  float: left;
+		  padding-top: 30px;
+		  font-family: 'Acme', sans-serif;
+		  color: greenyellow;
+	  }
+	  #LastDepTime,#LastDepTime1,#LastDepTime2,#LastDepTime3,#LastDepTime4,#LastDepTime5,#LastDepTime6,#LastDepTime7,#LastDepTime8,#LastDepTime9,#LastDepTime10,#LastDepTime11,#LastDepTime12,#LastDepTime13 {
+		background: #FAF8E1;
+		border: 1px solid #FAF8E1;
+		font-size: 12px; 
+		float: right;
+		margin-right: 10px;
+		border-radius: 5px;
+		width: 105px;
+		height: 22px;
+		pointer-events: none;	  
+	  }
+	  
+	  
+	 
+	  
+	  
+	  
+	  
+	  
+	  @keyframes rotate {from {transform: rotate(0deg);}
+      to {transform: rotate(180deg);}}
+	   @keyframes rotate5 {from {transform: rotate(180deg);}
+      to {transform: rotate(360deg);}}
+	  @keyframes rotate4 {from {transform: rotate(0deg);}
+      to {transform: rotate(360deg);}}
+	   
+	 
+	  
+	    @keyframes rotate14 {from {transform: rotate(0deg);}
+      to {transform: rotate(540deg);}}
+	  @keyframes rotate16 {from {transform: rotate(0deg);}
+      to {transform: rotate(720deg);}}
+	
+	 
+	  
+      @-webkit-keyframes rotate {from {-webkit-transform: rotate(0deg);}
+      to {-webkit-transform: rotate(180deg);}}
+	   @-webkit-keyframes rotate5 {from {-webkit-transform: rotate(180deg);}
+      to {-webkit-transform: rotate(360deg);}}
+	  @-webkit-keyframes rotate4 {from {-webkit-transform: rotate(0deg);}
+      to {-webkit-transform: rotate(360deg);}}
+	  
+	  
+	  
+	   @-webkit-keyframes rotate14 {from {-webkit-transform: rotate(0deg);}
+      to {-webkit-transform: rotate(540deg);}}
+	   @-webkit-keyframes rotate16 {from {-webkit-transform: rotate(0deg);}
+      to {-webkit-transform: rotate(720deg);}}
+	  
+	  
+	  
+	  
+	  
+
+	 
+	  #image0,#image0-1,#image0-2,#image0-3,#image0-4,#image0-5,#image0-6,#image0-7,#image0-8,#image0-9,#image0-10,#image0-11 {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 88px;
+		  top: 205px;
+		  z-index: 1;
+		 
+		 
+		  
+		  
+		   
+	  }
+	  #image0-12,#image0-13 {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 180px;
+		  top: 205px;
+		  z-index: 1;
+		 
+		 
+		  
+		  
+		   
+	  }
+	  #imagen {
+			display: block;
+			margin: 0 auto;
+			position: absolute;
+			right: 80px;
+			top: 80px;
+			z-index: 3;
+		}
+
+		#imagen12,
+		#imagen13 {
+			display: block;
+			margin: 0 auto;
+			position: absolute;
+			right: 174px;
+			top: 81px;
+			z-index: 3;
+		}
+	  
+	  #image1,#image25,#image2,#image3,#image4,#image5,#image8,#image9,#image10,#image11,#image12,#image13,#image14,#image15,#image20,#image6,#image7,#image26,#image21,#image22,#image23,#image24,#image16,#image29,#image27,#image28,#image17,#image18,#image19,#image20,#image29,#image30,#image31,#image32,#image33,#image34,#image35,#image36,#image37,#image38,#image39,#image40,#image41,#image42,#image43,#image44,#image45,#image46,#image47,#image48,#image49,#image50,#image51,#image52,#image53,#image54,#image55,#image56,#image57,#image58,#image59,#image60,#image61,#image62,#image63,#image64,#image65,#image66,#image67,#image68,#image69,#image70,#image71,#image72,#image73     {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 88px;
+		  top: 205px;
+		  z-index: 1;
+		  display: none;
+		 
+	  }
+	   #image1-1,#image25-1,#image2-1,#image3-1,#image4-1,#image5-1,#image8-1,#image9-1,#image10-1,#image11-1,#image12-1,#image13-1,#image14-1,#image15-1,#image20-1,#image6-1,#image7-1,#image26-1,#image21-1,#image22-1,#image23-1,#image24-1,#image16-1,#image29-1,#image27-1,#image28-1,#image17-1,#image18-1,#image19-1,#image20-1,#image29-1,#image30-1,#image31-1,#image32-1,#image33-1,#image34-1,#image35-1,#image36-1,#image37-1,#image38-1,#image39-1,#image40-1,#image41-1,#image42-1,#image43-1,#image44-1,#image45-1,#image46-1,#image47-1,#image48-1,#image49-1,#image50-1,#image51-1,#image52-1,#image53-1,#image54-1,#image55-1,#image56-1,#image57-1,#image58-1,#image59-1,#image60-1,#image61-1,#image62-1,#image63-1,#image64-1,#image65-1,#image66-1,#image67-1,#image68-1,#image69-1,#image70-1,#image71-1,#image72-1,#image73-1     {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 88px;
+		  top: 205px;
+		  z-index: 1;
+		  display: none;
+		 
+	  }
+	   #image1-2,#image25-2,#image2-2,#image3-2,#image4-2,#image5-2,#image8-2,#image9-2,#image10-2,#image11-2,#image12-2,#image13-2,#image14-2,#image15-2,#image20-2,#image6-2,#image7-2,#image26-2,#image21-2,#image22-2,#image23-2,#image24-2,#image16-2,#image29-2,#image27-2,#image28-2,#image17-2,#image18-2,#image19-2,#image20-2,#image29-2,#image30-2,#image31-2,#image32-2,#image33-2,#image34-2,#image35-2,#image36-2,#image37-2,#image38-2,#image39-2,#image40-2,#image41-2,#image42-2,#image43-2,#image44-2,#image45-2,#image46-2,#image47-2,#image48-2,#image49-2,#image50-2,#image51-2,#image52-2,#image53-2,#image54-2,#image55-2,#image56-2,#image57-2,#image58-2,#image59-2,#image60-2,#image61-2,#image62-2,#image63-2,#image64-2,#image65-2,#image66-2,#image67-2,#image68-2,#image69-2,#image70-2,#image71-2,#image72-2,#image73-2     {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 94px;
+		  top: 205px;
+		  z-index: 1;
+		  display: none;
+		 
+	  }
+	   #image1-3,#image25-3,#image2-3,#image3-3,#image4-3,#image5-3,#image8-3,#image9-3,#image10-3,#image11-3,#image12-3,#image13-3,#image14-3,#image15-3,#image20-3,#image6-3,#image7-3,#image26-3,#image21-3,#image22-3,#image23-3,#image24-3,#image16-3,#image29-3,#image27-3,#image28-3,#image17-3,#image18-3,#image19-3,#image20-3,#image29-3,#image30-3,#image31-3,#image32-3,#image33-3,#image34-3,#image35-3,#image36-3,#image37-3,#image38-3,#image39-3,#image40-3,#image41-3,#image42-3,#image43-3,#image44-3,#image45-3,#image46-3,#image47-3,#image48-3,#image49-3,#image50-3,#image51-3,#image52-3,#image53-3,#image54-3,#image55-3,#image56-3,#image57-3,#image58-3,#image59-3,#image60-3,#image61-3,#image62-3,#image63-3,#image64-3,#image65-3,#image66-3,#image67-3,#image68-3,#image69-3,#image70-3,#image71-3,#image72-3,#image73-3     {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 94px;
+		  top: 205px;
+		  z-index: 1;
+		  display: none;
+		 
+	  }
+	  #image1-4,#image25-4,#image2-4,#image3-4,#image4-4,#image5-4,#image8-4,#image9-4,#image10-4,#image11-4,#image12-4,#image13-4,#image14-4,#image15-4,#image20-4,#image6-4,#image7-4,#image26-4,#image21-4,#image22-4,#image23-4,#image24-4,#image16-4,#image29-4,#image27-4,#image28-4,#image17-4,#image18-4,#image19-4,#image20-4,#image29-4,#image30-4,#image31-4,#image32-4,#image33-4,#image34-4,#image35-4,#image36-4,#image37-4,#image38-4,#image39-4,#image40-4,#image41-4,#image42-4,#image43-4,#image44-4,#image45-4,#image46-4,#image47-4,#image48-4,#image49-4,#image50-4,#image51-4,#image52-4,#image53-4,#image54-4,#image55-4,#image56-4,#image57-4,#image58-4,#image59-4,#image60-4,#image61-4,#image62-4,#image63-4,#image64-4,#image65-4,#image66-4,#image67-4,#image68-4,#image69-4,#image70-4,#image71-4,#image72-4,#image73-4     {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 94px;
+		  top: 205px;
+		  z-index: 1;
+		  display: none;
+		 
+	  }
+	  #image1-5,#image25-5,#image2-5,#image3-5,#image4-5,#image5-5,#image8-5,#image9-5,#image10-5,#image11-5,#image12-5,#image13-5,#image14-5,#image15-5,#image20-5,#image6-5,#image7-5,#image26-5,#image21-5,#image22-5,#image23-5,#image24-5,#image16-5,#image29-5,#image27-5,#image28-5,#image17-5,#image18-5,#image19-5,#image20-5,#image29-5,#image30-5,#image31-5,#image32-5,#image33-5,#image34-5,#image35-5,#image36-5,#image37-5,#image38-5,#image39-5,#image40-5,#image41-5,#image42-5,#image43-5,#image44-5,#image45-5,#image46-5,#image47-5,#image48-5,#image49-5,#image50-5,#image51-5,#image52-5,#image53-5,#image54-5,#image55-5,#image56-5,#image57-5,#image58-5,#image59-5,#image60-5,#image61-5,#image62-5,#image63-5,#image64-5,#image65-5,#image66-5,#image67-5,#image68-5,#image69-5,#image70-5,#image71-5,#image72-5,#image73-5     {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 94px;
+		  top: 205px;
+		  z-index: 1;
+		  display: none;
+		 
+	  }
+	   #image1-6,#image25-6,#image2-6,#image3-6,#image4-6,#image5-6,#image8-6,#image9-6,#image10-6,#image11-6,#image12-6,#image13-6,#image14-6,#image15-6,#image20-6,#image6-6,#image7-6,#image26-6,#image21-6,#image22-6,#image23-6,#image24-6,#image16-6,#image29-6,#image27-6,#image28-6,#image17-6,#image18-6,#image19-6,#image20-6,#image29-6,#image30-6,#image31-6,#image32-6,#image33-6,#image34-6,#image35-6,#image36-6,#image37-6,#image38-6,#image39-6,#image40-6,#image41-6,#image42-6,#image43-6,#image44-6,#image45-6,#image46-6,#image47-6,#image48-6,#image49-6,#image50-6,#image51-6,#image52-6,#image53-6,#image54-6,#image55-6,#image56-6,#image57-6,#image58-6,#image59-6,#image60-6,#image61-6,#image62-6,#image63-6,#image64-6,#image65-6,#image66-6,#image67-6,#image68-6,#image69-6,#image70-6,#image71-6,#image72-6,#image73-6     {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 94px;
+		  top: 205px;
+		  z-index: 1;
+		  display: none;
+		 
+	  }
+	  #image1-7,#image25-7,#image2-7,#image3-7,#image4-7,#image5-7,#image8-7,#image9-7,#image10-7,#image11-7,#image12-7,#image13-7,#image14-7,#image15-7,#image20-7,#image6-7,#image7-7,#image26-7,#image21-7,#image22-7,#image23-7,#image24-7,#image16-7,#image29-7,#image27-7,#image28-7,#image17-7,#image18-7,#image19-7,#image20-7,#image29-7,#image30-7,#image31-7,#image32-7,#image33-7,#image34-7,#image35-7,#image36-7,#image37-7,#image38-7,#image39-7,#image40-7,#image41-7,#image42-7,#image43-7,#image44-7,#image45-7,#image46-7,#image47-7,#image48-7,#image49-7,#image50-7,#image51-7,#image52-7,#image53-7,#image54-7,#image55-7,#image56-7,#image57-7,#image58-7,#image59-7,#image60-7,#image61-7,#image62-7,#image63-7,#image64-7,#image65-7,#image66-7,#image67-7,#image68-7,#image69-7,#image70-7,#image71-7,#image72-7,#image73-7     {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 94px;
+		  top: 205px;
+		  z-index: 1;
+		  display: none;
+		 
+	  }
+	   #image1-8,#image25-8,#image2-8,#image3-8,#image4-8,#image5-8,#image8-8,#image9-8,#image10-8,#image11-8,#image12-8,#image13-8,#image14-8,#image15-8,#image20-8,#image6-8,#image7-8,#image26-8,#image21-8,#image22-8,#image23-8,#image24-8,#image16-8,#image29-8,#image27-8,#image28-8,#image17-8,#image18-8,#image19-8,#image20-8,#image29-8,#image30-8,#image31-8,#image32-8,#image33-8,#image34-8,#image35-8,#image36-8,#image37-8,#image38-8,#image39-8,#image40-8,#image41-8,#image42-8,#image43-8,#image44-8,#image45-8,#image46-8,#image47-8,#image48-8,#image49-8,#image50-8,#image51-8,#image52-8,#image53-8,#image54-8,#image55-8,#image56-8,#image57-8,#image58-8,#image59-8,#image60-8,#image61-8,#image62-8,#image63-8,#image64-8,#image65-8,#image66-8,#image67-8,#image68-8,#image69-8,#image70-8,#image71-8,#image72-8,#image73-8     {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 94px;
+		  top: 205px;
+		  z-index: 1;
+		  display: none;
+		 
+	  }
+	   #image1-9,#image25-9,#image2-9,#image3-9,#image4-9,#image5-9,#image8-9,#image9-9,#image10-9,#image11-9,#image12-9,#image13-9,#image14-9,#image15-9,#image20-9,#image6-9,#image7-9,#image26-9,#image21-9,#image22-9,#image23-9,#image24-9,#image16-9,#image29-9,#image27-9,#image28-9,#image17-9,#image18-9,#image19-9,#image20-9,#image29-9,#image30-9,#image31-9,#image32-9,#image33-9,#image34-9,#image35-9,#image36-9,#image37-9,#image38-9,#image39-9,#image40-9,#image41-9,#image42-9,#image43-9,#image44-9,#image45-9,#image46-9,#image47-9,#image48-9,#image49-9,#image50-9,#image51-9,#image52-9,#image53-9,#image54-9,#image55-9,#image56-9,#image57-9,#image58-9,#image59-9,#image60-9,#image61-9,#image62-9,#image63-9,#image64-9,#image65-9,#image66-9,#image67-9,#image68-9,#image69-9,#image70-9,#image71-9,#image72-9,#image73-9     {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 94px;
+		  top: 205px;
+		  z-index: 1;
+		  display: none;
+		 
+	  }
+	  #image1-10,#image25-10,#image2-10,#image3-10,#image4-10,#image5-10,#image8-10,#image9-10,#image10-10,#image11-10,#image12-10,#image13-10,#image14-10,#image15-10,#image20-10,#image6-10,#image7-10,#image26-10,#image21-10,#image22-10,#image23-10,#image24-10,#image16-10,#image29-10,#image27-10,#image28-10,#image17-10,#image18-10,#image19-10,#image20-10,#image29-10,#image30-10,#image31-10,#image32-10,#image33-10,#image34-10,#image35-10,#image36-10,#image37-10,#image38-10,#image39-10,#image40-10,#image41-10,#image42-10,#image43-10,#image44-10,#image45-10,#image46-10,#image47-10,#image48-10,#image49-10,#image50-10,#image51-10,#image52-10,#image53-10,#image54-10,#image55-10,#image56-10,#image57-10,#image58-10,#image59-10,#image60-10,#image61-10,#image62-10,#image63-10,#image64-10,#image65-10,#image66-10,#image67-10,#image68-10,#image69-10,#image70-10,#image71-10,#image72-10,#image73-10     {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 94px;
+		  top: 205px;
+		  z-index: 1;
+		  display: none;
+		 
+	  }
+	  #image1-11,#image25-11,#image2-11,#image3-11,#image4-11,#image5-11,#image8-11,#image9-11,#image10-11,#image11-11,#image12-11,#image13-11,#image14-11,#image15-11,#image20-11,#image6-11,#image7-11,#image26-11,#image21-11,#image22-11,#image23-11,#image24-11,#image16-11,#image29-11,#image27-11,#image28-11,#image17-11,#image18-11,#image19-11,#image20-11,#image29-11,#image30-11,#image31-11,#image32-11,#image33-11,#image34-11,#image35-11,#image36-11,#image37-11,#image38-11,#image39-11,#image40-11,#image41-11,#image42-11,#image43-11,#image44-11,#image45-11,#image46-11,#image47-11,#image48-11,#image49-11,#image50-11,#image51-11,#image52-11,#image53-11,#image54-11,#image55-11,#image56-11,#image57-11,#image58-11,#image59-11,#image60-11,#image61-11,#image62-11,#image63-11,#image64-11,#image65-11,#image66-11,#image67-11,#image68-11,#image69-11,#image70-11,#image71-11,#image72-11,#image73-11     {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 94px;
+		  top: 205px;
+		  z-index: 1;
+		  display: none;
+		 
+	  }
+	  #image1-12,#image25-12,#image2-12,#image3-12,#image4-12,#image5-12,#image8-12,#image9-12,#image10-12,#image11-12,#image12-12,#image13-12,#image14-12,#image15-12,#image20-12,#image6-12,#image7-12,#image26-12,#image21-12,#image22-12,#image23-12,#image24-12,#image16-12,#image29-12,#image27-12,#image28-12,#image17-12,#image18-12,#image19-12,#image20-12,#image29-12,#image30-12,#image31-12,#image32-12,#image33-12,#image34-12,#image35-12,#image36-12,#image37-12,#image38-12,#image39-12,#image40-12,#image41-12,#image42-12,#image43-12,#image44-12,#image45-12,#image46-12,#image47-12,#image48-12,#image49-12,#image50-12,#image51-12,#image52-12,#image53-12,#image54-12,#image55-12,#image56-12,#image57-12,#image58-12,#image59-12,#image60-12,#image61-12,#image62-12,#image63-12,#image64-12,#image65-12,#image66-12,#image67-12,#image68-12,#image69-12,#image70-12,#image71-12,#image72-12,#image73-12     {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 188px;
+		  top: 205px;
+		  z-index: 1;
+		  display: none;
+		 
+	  }
+	   #image1-13,#image25-13,#image2-13,#image3-13,#image4-13,#image5-13,#image8-13,#image9-13,#image10-13,#image11-13,#image12-13,#image13-13,#image14-13,#image15-13,#image20-13,#image6-13,#image7-13,#image26-13,#image21-13,#image22-13,#image23-13,#image24-13,#image16-13,#image29-13,#image27-13,#image28-13,#image17-13,#image18-13,#image19-13,#image20-13,#image29-13,#image30-13,#image31-13,#image32-13,#image33-13,#image34-13,#image35-13,#image36-13,#image37-13,#image38-13,#image39-13,#image40-13,#image41-13,#image42-13,#image43-13,#image44-13,#image45-13,#image46-13,#image47-13,#image48-13,#image49-13,#image50-13,#image51-13,#image52-13,#image53-13,#image54-13,#image55-13,#image56-13,#image57-13,#image58-13,#image59-13,#image60-13,#image61-13,#image62-13,#image63-13,#image64-13,#image65-13,#image66-13,#image67-13,#image68-13,#image69-13,#image70-13,#image71-13,#image72-13,#image73-13     {
+		  display: block;
+		  margin: 0 auto;
+		  position: absolute;
+		  right: 188px;
+		  top: 205px;
+		  z-index: 1;
+		  display: none;
+		 
+	  }
+	  #imagenM,#imagenM1,#imagenM2,#imagenM3,#imagenM4,#imagenM5,#imagenM6,#imagenM7,#imagenM8,#imagenM9,#imagenM10,#imagenM11 {
+
+display: none;
+	  margin: 0 auto;
+	  position: absolute;
+	  right: 144px;
+	  top: 220px;
+	  z-index: 2;
+
+
+}
+#imagenM12,#imagenM13{
+
+display: none;
+	  margin: 0 auto;
+	  position: absolute;
+	  right: 144px;
+	  top: 220px;
+	  z-index: 2;
+
+
+}
+	  #winner,#winner1,#winner2,#winner3,#winner4,#winner5,#winner6,#winner7,#winner8,#winner9,#winner10,#winner11 {
+		  
+		  margin-top: 265px;
+		  position: absolute;
+		  font-size: 20px;
+		  left: 152px;
+		  display: none;
+		  font-family: 'Acme', sans-serif;
+		  color:green;
+	  }
+	  #winner12,#winner13 {
+		  
+		  margin-top: 265px;
+		  position: absolute;
+		  font-size: 20px;
+		  left: 248px;
+		  display: none;
+		  font-family: 'Acme', sans-serif;
+		  color:green;
+	  }
+	   #loser,#loser1,#loser2,#loser3,#loser4,#loser5,#loser6,#loser7,#loser8,#loser9,#loser10,#loser11 {
+		  
+		  margin-top: 240px;
+		  position: absolute;
+		  font-size: 20px;
+		  left: 117px;
+		  display: none;
+		  font-family: 'Acme', sans-serif;
+		  color:red;
+	  }
+	  #loser12,#loser13 {
+		  
+		  margin-top: 240px;
+		  position: absolute;
+		  font-size: 20px;
+		  left: 210px;
+		  display: none;
+		  font-family: 'Acme', sans-serif;
+		  color:red;
+	  }
+	  #WinnerJackpot,#WinnerJackpot1,#WinnerJackpot2,#WinnerJackpot3,#WinnerJackpot4,#WinnerJackpot5,#WinnerJackpot6,#WinnerJackpot7,#WinnerJackpot8,#WinnerJackpot9,#WinnerJackpot10,#WinnerJackpot11 {
+		  
+		  margin-top: px;
+		  position: absolute;
+		  font-size: 20px;
+		  left: 105px;
+		  display: none;  
+		  font-family: 'Acme', sans-serif;
+		  color: orange;
+		  
+	  }
+	  #WinnerJackpot12,#WinnerJackpot13 {
+		  
+		  margin-top: px;
+		  position: absolute;
+		  font-size: 20px;
+		  left: 199px;
+		  display: none;  
+		  font-family: 'Acme', sans-serif;
+		  color: orange;
+		  
+	  }
+	  
+	  #fondo1 {
+		  
+		  position: absolute;
+		  top:0px;
+		  width: 1px;
+		  height: 397px;
+		  max-width: 2816px;
+		  max-height: 884;
+		  z-index: 0;
+		  
+		  
+	  }
+	 
+  .wellwin {
+         
+          width: 700px;
+          height: 420px;
+          border-radius: 16px 16px 16px 16px;
+	      margin: 0 auto;
+	      background-image: url("Images1/chocolatederretido.png");
+	      background-repeat: no-repeat;
+	      background-color: #DEFDD6;
+	      font-family: 'Acme', sans-serif;
+	      font-size: 20px;
+	    
+	   
+      }
+	  
+	  .welljackpot {
+         
+          width: 700px;
+          height: 270px;
+          border-radius: 16px 16px 16px 16px;
+	      margin: 0 auto;
+	      background-color: #DBFDFE;
+	      font-family: 'Acme', sans-serif;
+	      font-size: 20px;
+      }
+	
+	  #LastWinner {
+		  
+    background-color: #ffffff;
+    border: 1px solid green;
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+    border-radius: 16px;
+	width: 600px;
+	height: 300px;
+	margin: auto;
+	margin-bottom: 5px;
+	overflow:auto;
+	text-align: justify;
+	
+	  }
+	   #LastJackpot {
+		  
+    background-color: #ffffff;
+    border: 1px solid blue;
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+    border-radius: 16px;
+	width: 600px;
+    height: 150px;
+	margin: auto;
+	margin-bottom: 5px;
+	overflow:auto;
+	text-align: justify;	   
+	  }
+	  
+	  pre {
+	background-color: #ffffff;
+    border: 1px solid green;
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+    border-radius: 16px;
+	width: 600px;
+	height: 50px;
+	margin: auto;  
+	margin-bottom: 8px;
+	margin-top: 8px;
+	  }
+	  
+	  #prejackpot {
+		  
+	background-color: #ffffff;
+    border: 1px solid blue;
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+    border-radius: 16px;
+	width: 600px;
+	height: 50px;
+	margin: auto;  
+	margin-bottom: 8px;
+	margin-top: 8px; 
+		    
+	  }
+	  
+	  #jp {
+		  position: relative;
+		  left: -152px;
+		  top: 5px;
+		  font-size: 25px;
+		  font-family: 'Acme', sans-serif;
+		  color: greenyellow;
+	  }
+	  #lb {
+		  position: relative;
+		  right: -2px;
+		  top: 4px;
+		  font-size: 15px;
+		  font-family: 'Acme', sans-serif;
+	  }
+	  
+	  #network {
+			float: left;
+			margin-right: 40px;	
+			top: 22px;
+			right: 200px;
+			font-size: 15px;
+			border-radius: 10px 10px 10px 10px;
+			background: white;
+			padding-left: 3px;
+			padding-right: 3px;
+
+		}
+	    #info, #info1, #info2 {
+  border: solid green;
+  outline: 0;
+  padding: 5px;
+  color: black;
+  background-color: #DEFDD6;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 16px;
+  width: 235px;
+  height: 60px;
+  margin: 0 auto;
+  pointer-events: none;
+  display: inline-block;
+  margin-bottom: 25px;
+  font-family: 'Acme', sans-serif; 
+		  
+		  
+	  }
+</style>
+    <script>
+        
+        
+
+ 
+        var myVar;
+
+function myFunction() {
+    myVar = setTimeout(showPage, 1000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+</script>
+    
+
+</head>
+<body onload="myFunction()" style="margin:0;">
+	<img src="Images3/loader.png" id="loader">
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+    
+
+		
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a href="Games.html"><img id="logo" src="Images3/logotipo.png"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+           <li><a href="Games.html">Games</a></li>
+		  
+        <li class=""><a href="https://etherscan.io/address/0x97dc5d70b9ef69b3ab6d52ac48611da94883c77b">Contract</a></li>
+		<button class="enableEthereumButton" onclick="getAccount()">Connect Wallet</button>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+		   
+           <div id="user">
+          <span><i class='fas fa-user' style='font-size:16px;color:white; float:left; margin: 3px;  position: absolute'></i></span>
+          <div id="network"></div>
+							<div id="cuenta"></div>
+							<div id="balance"></div>
+		  </div>
+           
+ 
+		   
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+	
+
+
+ <div class="container">
+   <div id="metamask"></div>
+ 
+    
+<div class="container-fluid bg-3 text-center">
+  <span style="color: #F85EFC; font-family: 'Acme', sans-serif; font-size: 70px">Mixed </span> <span style="color: #B8870E; font-family: 'Acme', sans-serif; font-size: 70px"> Donuts</span><br>
+	<input id='info' class='inputField' type="button" value="Winning Chance: 50%">
+	<input id='info1' class='inputField' type="button" value="Winning Bet Pays: 1.90x">
+	<input id='info2' class='inputField' type="button" value="Number Players: 2">
+    
+  <div class="row">
+    <div class="col-sm-4">
+      
+
+<div class="card">
+	<input value ='0.01 MATIC' id='Game0' class='inputField' type="button"><br>
+	 <span id="jp">Jackpot</span>
+	 <span id="lb">Last Bet</span>
+	<input value ='- -' id='JackPot0' class='inputField' type="button"><br>
+	  <input value ='- -' id="LastDepTime" class='inputField' type="button"><br><br>
+	
+	
+
+<img src="Images3/donut38.png" id="image38">
+<img src="Images3/donut6.png" id="image6">
+<img src="Images3/donut2.png" id="image2">
+<img src="Images3/donut26.png" id="image26">	
+ <img src="Images3/donut25.png" id="image25">
+ <img src="Images3/donut1.png" id="image1">
+ <img src="Images3/HOMERO4.PNG" id="imagen">
+ <img src="Images3/mordida.png" id="imagenM">
+ <img src="Images3/donut.png" id="image0"><br><br>
+	
+	<p style="text-align:center" id="winner"> You Won!</p>
+	<p style="text-align:center" id="loser"> You Lost! Try Again</p>
+	<p style="text-align:center" id="WinnerJackpot"> You Won the Jackpot!!</p>
+	 <button id="button2" class="button" onclick="WithdrawFrom0()">Cancel Bet</button>
+	 <button id="button1" class="button" onclick="ReclamaPremio0()">Claim Prize</button>
+	 <button id="button0" class="button" onclick="PlayGame0()"></button>
+</div>
+    </div>
+                
+           
+    <div class="col-sm-4"> 
+      <div class="card">
+ 		<input value ='0.02 MATIC' id='Game0' class='inputField' type="button"><br>
+	 <span id="jp">Jackpot</span>
+	 <span id="lb">Last Bet</span>
+	<input value ='- -' id='JackPot1' class='inputField' type="button"><br>
+	  <input value ='- -' id="LastDepTime1" class='inputField' type="button"><br><br>
+	
+<img src="Images3/donut38.png" id="image38-1">
+<img src="Images3/donut6.png" id="image6-1">
+<img src="Images3/donut2.png" id="image2-1">
+<img src="Images3/donut26.png" id="image26-1">	
+ <img src="Images3/donut25.png" id="image25-1">
+ <img src="Images3/donut1.png" id="image1-1">
+ <img src="Images3/HOMERO4.PNG" id="imagen">
+ <img src="Images3/mordida.png" id="imagenM1">
+ <img src="Images3/donut.png" id="image0-1"><br><br>
+	
+	<p style="text-align:center" id="winner1"> You Won!</p>
+	<p style="text-align:center" id="loser1"> You Lost! Try Again</p>
+	<p style="text-align:center" id="WinnerJackpot1"> You Won the Jackpot!!</p>
+	 <button id="button2-1" class="button" onclick="WithdrawFrom1()">Cancel Bet</button>
+	 <button id="button1-1" class="button" onclick="ReclamaPremio0()">Claim Prize</button>
+	 <button id="button0-1" class="button" onclick="PlayGame1()"></button>
+   
+          </div>
+    </div>
+    <div class="col-sm-4"> 
+     <div class="card">
+ 	<input value ='0.04 MATIC' id='Game0' class='inputField' type="button"><br>
+	 <span id="jp">Jackpot</span>
+	 <span id="lb">Last Bet</span>
+	<input value ='- -' id='JackPot2' class='inputField' type="button"><br>
+	  <input value ='- -' id="LastDepTime2" class='inputField' type="button"><br><br>
+	
+<img src="Images3/donut38.png" id="image38-2">
+<img src="Images3/donut6.png" id="image6-2">
+<img src="Images3/donut2.png" id="image2-2">
+<img src="Images3/donut26.png" id="image26-2">	
+ <img src="Images3/donut25.png" id="image25-2">
+ <img src="Images3/donut1.png" id="image1-2">
+ <img src="Images3/HOMERO4.PNG" id="imagen">
+ <img src="Images3/mordida.png" id="imagenM2">
+ <img src="Images3/donut.png" id="image0-2"><br><br>
+	<p style="text-align:center" id="winner2"> You Won!</p>
+	<p style="text-align:center" id="loser2"> You Lost! Try Again</p>
+	<p style="text-align:center" id="WinnerJackpot2"> You Won the Jackpot!!</p>
+	 <button id="button2-2" class="button" onclick="WithdrawFrom2()">Cancel Bet</button>
+	 <button id="button1-2" class="button" onclick="ReclamaPremio0()">Claim Prize</button>
+	 <button id="button0-2" class="button" onclick="PlayGame2()"></button>
+  
+   </div>
+    </div>
+    
+  </div>
+</div><br><br>
+
+<div class="container-fluid bg-3 text-center" >    
+ <div class="row">
+    <div class="col-sm-4">
+      
+
+<div class="card">
+<input value ='0.05 MATIC' id='Game0' class='inputField' type="button"><br>
+	 <span id="jp">Jackpot</span>
+	 <span id="lb">Last Bet</span>
+	<input value ='- -' id='JackPot3' class='inputField' type="button"><br>
+	  <input value ='- -' id="LastDepTime3" class='inputField' type="button"><br><br>
+	
+<img src="Images3/donut38.png" id="image38-3">
+<img src="Images3/donut6.png" id="image6-3">
+<img src="Images3/donut2.png" id="image2-3">
+<img src="Images3/donut26.png" id="image26-3">	
+ <img src="Images3/donut25.png" id="image25-3">
+ <img src="Images3/donut1.png" id="image1-3">
+ <img src="Images3/HOMERO4.PNG" id="imagen">
+ <img src="Images3/mordida.png" id="imagenM3">
+ <img src="Images3/donut.png" id="image0-3"><br><br>
+	
+	<p style="text-align:center" id="winner3"> You Won!</p>
+	<p style="text-align:center" id="loser3"> You Lost! Try Again</p>
+	<p style="text-align:center" id="WinnerJackpot3"> You Won the Jackpot!!</p>
+	 <button id="button2-3" class="button" onclick="WithdrawFrom3()">Cancel Bet</button>
+	 <button id="button1-3" class="button" onclick="ReclamaPremio0()">Claim Prize</button>
+	 <button id="button0-3" class="button" onclick="PlayGame3()"></button>
+</div>
+    </div>
+                
+           
+    <div class="col-sm-4"> 
+      <div class="card">
+  <input value ='0.07 MATIC' id='Game0' class='inputField' type="button"><br>
+	 <span id="jp">Jackpot</span>
+	 <span id="lb">Last Bet</span>
+	<input value ='- -' id='JackPot4' class='inputField' type="button"><br>
+	  <input value ='- -' id="LastDepTime4" class='inputField' type="button"><br><br>
+	
+<img src="Images3/donut38.png" id="image38-4">
+<img src="Images3/donut6.png" id="image6-4">
+<img src="Images3/donut2.png" id="image2-4">
+<img src="Images3/donut26.png" id="image26-4">	
+ <img src="Images3/donut25.png" id="image25-4">
+ <img src="Images3/donut1.png" id="image1-4">
+ <img src="Images3/HOMERO4.PNG" id="imagen">
+ <img src="Images3/mordida.png" id="imagenM4">
+ <img src="Images3/donut.png" id="image0-4"><br><br>
+	
+	<p style="text-align:center" id="winner4"> You Won!</p>
+	<p style="text-align:center" id="loser4"> You Lost! Try Again</p>
+	<p style="text-align:center" id="WinnerJackpot4"> You Won the Jackpot!!</p>
+	 <button id="button2-4" class="button" onclick="WithdrawFrom4()">Cancel Bet</button>
+	 <button id="button1-4" class="button" onclick="ReclamaPremio0()">Claim Prize</button>
+	 <button id="button0-4" class="button" onclick="PlayGame4()"></button>
+   
+          </div>
+    </div>
+    <div class="col-sm-4"> 
+     <div class="card">
+  <input value ='0.08 MATIC' id='Game0' class='inputField' type="button"><br>
+	 <span id="jp">Jackpot</span>
+	 <span id="lb">Last Bet</span>
+	<input value ='- -' id='JackPot5' class='inputField' type="button"><br>
+	  <input value ='- -' id="LastDepTime5" class='inputField' type="button"><br><br>
+	
+<img src="Images3/donut38.png" id="image38-5">
+<img src="Images3/donut6.png" id="image6-5">
+<img src="Images3/donut2.png" id="image2-5">
+<img src="Images3/donut26.png" id="image26-5">	
+ <img src="Images3/donut25.png" id="image25-5">
+ <img src="Images3/donut1.png" id="image1-5">
+ <img src="Images3/HOMERO4.PNG" id="imagen">
+ <img src="Images3/mordida.png" id="imagenM5">
+ <img src="Images3/donut.png" id="image0-5"><br><br>
+	
+	<p style="text-align:center" id="winner5"> You Won!</p>
+	<p style="text-align:center" id="loser5"> You Lost! Try Again</p>
+	<p style="text-align:center" id="WinnerJackpot5"> You Won the Jackpot!!</p>
+	 <button id="button2-5" class="button" onclick="WithdrawFrom5()">Cancel Bet</button>
+	 <button id="button1-5" class="button" onclick="ReclamaPremio0()">Claim Prize</button>
+	 <button id="button0-5" class="button" onclick="PlayGame5()"></button>
+   </div>
+    </div>
+    
+  </div>
+</div>
+    <br><br>
+	 <div class="container-fluid bg-3 text-center" >    
+ <div class="row">
+    <div class="col-sm-4">
+      
+
+<div class="card">
+<input value ='0.1 MATIC' id='Game0' class='inputField' type="button"><br>
+	 <span id="jp">Jackpot</span>
+	 <span id="lb">Last Bet</span>
+	<input value ='- -' id='JackPot6' class='inputField' type="button"><br>
+	  <input value ='- -' id="LastDepTime6" class='inputField' type="button"><br><br>
+	
+<img src="Images3/donut38.png" id="image38-6">
+<img src="Images3/donut6.png" id="image6-6">
+<img src="Images3/donut2.png" id="image2-6">
+<img src="Images3/donut26.png" id="image26-6">	
+ <img src="Images3/donut25.png" id="image25-6">
+ <img src="Images3/donut1.png" id="image1-6">
+ <img src="Images3/HOMERO4.PNG" id="imagen">
+ <img src="Images3/mordida.png" id="imagenM6">
+ <img src="Images3/donut.png" id="image0-6"><br><br>
+	
+	<p style="text-align:center" id="winner6"> You Won!</p>
+	<p style="text-align:center" id="loser6"> You Lost! Try Again</p>
+	<p style="text-align:center" id="WinnerJackpot6"> You Won the Jackpot!!</p>
+	 <button id="button2-6" class="button" onclick="WithdrawFrom6()">Cancel Bet</button>
+	 <button id="button1-6" class="button" onclick="ReclamaPremio0()">Claim Prize</button>
+	 <button id="button0-6" class="button" onclick="PlayGame6()"></button>
+</div>
+    </div>
+                
+           
+    <div class="col-sm-4"> 
+      <div class="card">
+  
+   <input value ='0.15 MATIC' id='Game0' class='inputField' type="button"><br>
+	 <span id="jp">Jackpot</span>
+	 <span id="lb">Last Bet</span>
+	<input value ='- -' id='JackPot7' class='inputField' type="button"><br>
+	  <input value ='- -' id="LastDepTime7" class='inputField' type="button"><br><br>
+	
+<img src="Images3/donut38.png" id="image38-7">
+<img src="Images3/donut6.png" id="image6-7">
+<img src="Images3/donut2.png" id="image2-7">
+<img src="Images3/donut26.png" id="image26-7">	
+ <img src="Images3/donut25.png" id="image25-7">
+ <img src="Images3/donut1.png" id="image1-7">
+ <img src="Images3/HOMERO4.PNG" id="imagen">
+ <img src="Images3/mordida.png" id="imagenM7">
+ <img src="Images3/donut.png" id="image0-7"><br><br>
+	
+	<p style="text-align:center" id="winner7"> You Won!</p>
+	<p style="text-align:center" id="loser7"> You Lost! Try Again</p>
+	<p style="text-align:center" id="WinnerJackpot7"> You Won the Jackpot!!</p>
+	 <button id="button2-7" class="button" onclick="WithdrawFrom7()">Cancel Bet</button>
+	 <button id="button1-7" class="button" onclick="ReclamaPremio0()">Claim Prize</button>
+	 <button id="button0-7" class="button" onclick="PlayGame7()"></button>
+          </div>
+    </div>
+    <div class="col-sm-4"> 
+     <div class="card">
+   <input value ='0.2 MATIC' id='Game0' class='inputField' type="button"><br>
+	 <span id="jp">Jackpot</span>
+	 <span id="lb">Last Bet</span>
+	<input value ='- -' id='JackPot8' class='inputField' type="button"><br>
+	  <input value ='- -' id="LastDepTime8" class='inputField' type="button"><br><br>
+	
+<img src="Images3/donut38.png" id="image38-8">
+<img src="Images3/donut6.png" id="image6-8">
+<img src="Images3/donut2.png" id="image2-8">
+<img src="Images3/donut26.png" id="image26-8">	
+ <img src="Images3/donut25.png" id="image25-8">
+ <img src="Images3/donut1.png" id="image1-8">
+ <img src="Images3/HOMERO4.PNG" id="imagen">
+ <img src="Images3/mordida.png" id="imagenM8">
+ <img src="Images3/donut.png" id="image0-8"><br><br>
+	
+	<p style="text-align:center" id="winner8"> You Won!</p>
+	<p style="text-align:center" id="loser8"> You Lost! Try Again</p>
+	<p style="text-align:center" id="WinnerJackpot8"> You Won the Jackpot!!</p>
+	 <button id="button2-8" class="button" onclick="WithdrawFrom8()">Cancel Bet</button>
+	 <button id="button1-8" class="button" onclick="ReclamaPremio0()">Claim Prize</button>
+	 <button id="button0-8" class="button" onclick="PlayGame8()"></button>
+   </div>
+    </div>
+    
+  </div>
+</div>
+    <br><br>
+    <div class="container-fluid bg-3 text-center">    
+ <div class="row">
+    <div class="col-sm-4">
+      
+
+<div class="card">
+ <input value ='0.3 MATIC' id='Game0' class='inputField' type="button"><br>
+	 <span id="jp">Jackpot</span>
+	 <span id="lb">Last Bet</span>
+	<input value ='- -' id='JackPot9' class='inputField' type="button"><br>
+	  <input value ='- -' id="LastDepTime9" class='inputField' type="button"><br><br>
+	
+<img src="Images3/donut38.png" id="image38-9">
+<img src="Images3/donut6.png" id="image6-9">
+<img src="Images3/donut2.png" id="image2-9">
+<img src="Images3/donut26.png" id="image26-9">	
+ <img src="Images3/donut25.png" id="image25-9">
+ <img src="Images3/donut1.png" id="image1-9">
+ <img src="Images3/HOMERO4.PNG" id="imagen">
+ <img src="Images3/mordida.png" id="imagenM9">
+ <img src="Images3/donut.png" id="image0-9"><br><br>
+	
+	<p style="text-align:center" id="winner9"> You Won!</p>
+	<p style="text-align:center" id="loser9"> You Lost! Try Again</p>
+	<p style="text-align:center" id="WinnerJackpot9"> You Won the Jackpot!!</p>
+	 <button id="button2-9" class="button" onclick="WithdrawFrom9()">Cancel Bet</button>
+	 <button id="button1-9" class="button" onclick="ReclamaPremio0()">Claim Prize</button>
+	 <button id="button0-9" class="button" onclick="PlayGame9()"></button>
+</div>
+    </div>
+                
+           
+    <div class="col-sm-4"> 
+      <div class="card">
+  
+    <input value ='0.4 MATIC' id='Game0' class='inputField' type="button"><br>
+	 <span id="jp">Jackpot</span>
+	 <span id="lb">Last Bet</span>
+	<input value ='- -' id='JackPot10' class='inputField' type="button"><br>
+	  <input value ='- -' id="LastDepTime10" class='inputField' type="button"><br><br>
+	
+<img src="Images3/donut38.png" id="image38-10">
+<img src="Images3/donut6.png" id="image6-10">
+<img src="Images3/donut2.png" id="image2-10">
+<img src="Images3/donut26.png" id="image26-10">	
+ <img src="Images3/donut25.png" id="image25-10">
+ <img src="Images3/donut1.png" id="image1-10">
+ <img src="Images3/HOMERO4.PNG" id="imagen">
+ <img src="Images3/mordida.png" id="imagenM10">
+ <img src="Images3/donut.png" id="image0-10"><br><br>
+	
+	<p style="text-align:center" id="winner10"> You Won!</p>
+	<p style="text-align:center" id="loser10"> You Lost! Try Again</p>
+	<p style="text-align:center" id="WinnerJackpot10"> You Won the Jackpot!!</p>
+	 <button id="button2-10" class="button" onclick="WithdrawFrom10()">Cancel Bet</button>
+	 <button id="button1-10" class="button" onclick="ReclamaPremio0()">Claim Prize</button>
+	 <button id="button0-10" class="button" onclick="PlayGame10()"></button>
+          </div>
+    </div>
+    <div class="col-sm-4"> 
+     <div class="card">
+ <input value ='0.5 MATIC' id='Game0' class='inputField' type="button"><br>
+	 <span id="jp">Jackpot</span>
+	 <span id="lb">Last Bet</span>
+	<input value ='- -' id='JackPot11' class='inputField' type="button"><br>
+	  <input value ='- -' id="LastDepTime11" class='inputField' type="button"><br><br>
+	
+<img src="Images3/donut38.png" id="image38-11">
+<img src="Images3/donut6.png" id="image6-11">
+<img src="Images3/donut2.png" id="image2-11">
+<img src="Images3/donut26.png" id="image26-11">	
+ <img src="Images3/donut25.png" id="image25-11">
+ <img src="Images3/donut1.png" id="image1-11">
+ <img src="Images3/HOMERO4.PNG" id="imagen">
+ <img src="Images3/mordida.png" id="imagenM11">
+ <img src="Images3/donut.png" id="image0-11"><br><br>
+	
+	<p style="text-align:center" id="winner11"> You Won!</p>
+	<p style="text-align:center" id="loser11"> You Lost! Try Again</p>
+	<p style="text-align:center" id="WinnerJackpot11"> You Won the Jackpot!!</p>
+	 <button id="button2-11" class="button" onclick="WithdrawFrom11()">Cancel Bet</button>
+	 <button id="button1-11" class="button" onclick="ReclamaPremio0()">Claim Prize</button>
+	 <button id="button0-11" class="button" onclick="PlayGame11()"></button>
+   </div>
+    </div>
+    
+  </div>
+</div>
+    <br/><br>
+		 <div class="container-fluid bg-3 text-center">    
+ <div class="row">
+    <div class="col-sm-6">
+      
+
+<div class="card">
+<input value ='0.8 MATIC' id='Game0' class='inputField' type="button"><br>
+	 <span id="jp">Jackpot</span>
+	 <span id="lb">Last Bet</span>
+	<input value ='- -' id='JackPot12' class='inputField' type="button"><br>
+	  <input value ='- -' id="LastDepTime12" class='inputField' type="button"><br><br>
+	
+<img src="Images3/donut38.png" id="image38-12">
+<img src="Images3/donut6.png" id="image6-12">
+<img src="Images3/donut2.png" id="image2-12">
+<img src="Images3/donut26.png" id="image26-12">	
+ <img src="Images3/donut25.png" id="image25-12">
+ <img src="Images3/donut1.png" id="image1-12">
+ <img src="Images3/HOMERO4.PNG" id="imagen12">
+ <img src="Images3/mordida.png" id="imagenM12">
+ <img src="Images3/donut.png" id="image0-12"><br><br>
+	
+	<p style="text-align:center" id="winner12"> You Won!</p>
+	<p style="text-align:center" id="loser12"> You Lost! Try Again</p>
+	<p style="text-align:center" id="WinnerJackpot12"> You Won the Jackpot!!</p>
+	 <button id="button2-12" class="button" onclick="WithdrawFrom12()">Cancel Bet</button>
+	 <button id="button1-12" class="button" onclick="ReclamaPremio0()">Claim Prize</button>
+	 <button id="button0-12" class="button" onclick="PlayGame12()"></button>
+</div>
+    </div>
+     
+    <div class="col-sm-6"> 
+      <div class="card">
+  
+   <input value ='1 MATIC' id='Game0' class='inputField' type="button"><br>
+	 <span id="jp">Jackpot</span>
+	 <span id="lb">Last Bet</span>
+	<input value ='- -' id='JackPot13' class='inputField' type="button"><br>
+	  <input value ='- -' id="LastDepTime13" class='inputField' type="button"><br><br>
+	
+<<img src="Images3/donut38.png" id="image38-13">
+<img src="Images3/donut6.png" id="image6-13">
+<img src="Images3/donut2.png" id="image2-13">
+<img src="Images3/donut26.png" id="image26-13">	
+ <img src="Images3/donut25.png" id="image25-13">
+ <img src="Images3/donut1.png" id="image1-13">
+ <img src="Images3/HOMERO4.PNG" id="imagen13">
+ <img src="Images3/mordida.png" id="imagenM13">
+ <img src="Images3/donut.png" id="image0-13"><br><br>
+	
+	<p style="text-align:center" id="winner13"> You Won!</p>
+	<p style="text-align:center" id="loser13"> You Lost! Try Again</p>
+	<p style="text-align:center" id="WinnerJackpot13"> You Won the Jackpot!!</p>
+	 <button id="button2-13" class="button" onclick="WithdrawFrom13()">Cancel Bet</button>
+	 <button id="button1-13" class="button" onclick="ReclamaPremio0()">Claim Prize</button>
+	 <button id="button0-13" class="button" onclick="PlayGame13()"></button>
+          </div>
+    </div>
+   
+    
+  </div>
+</div>
+     </div>
+    <br/><br><br>
+		
+      <div class="wellwin">
+      <h3 style="text-align:center; font-size: 30px;  font-family: 'Acme', sans-serif; background-color: #ffffff;
+     border-radius: 0 0 16px 16px; width: 200px;
+	margin: 0 auto; color: green;">Last Winners</h3>
+        
+        <pre><b>      Win      Bet        Wallet         Date</b></pre>
+       
+         
+         <div style="text-align:center" id="LastWinner"></div>
+       
+    </div><br/><br>
+		
+		 <div class="welljackpot">
+      <h3 style="text-align:center; font-size: 30px;  font-family: 'Acme', sans-serif; background-color: #ffffff;
+    
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+     border-radius: 0 0 16px 16px; width: 350px;
+	margin: 0 auto;">Last Jackpot Winners </h3>
+      
+		 <pre id="prejackpot"><b>         Jackpot       Wallet         Date</b></pre>	 
+   
+         
+        <div style="text-align:center"id="LastJackpot"></div>
+        
+    
+    </div><br/><br>
+		<div class="container-fluid bg-3 text-center">
+		  <span style="color: #F85EFC; font-family: 'Acme', sans-serif; font-size: 50px; text-align: center">Donuts </span> <span style="color: #B8870E; font-family: 'Acme', sans-serif; font-size: 50px; text-align: center">Played </span> 
+		<input id='DonutPlayed' class='inputField' type="button"><br>
+  </div>
+  
+<footer class="container-fluid">
+    
+     <div class="sociales"> 
+        <p style="color: white"><b>Socials</b></p>
+ 
+		<a href="https://discord.com/channels/1072570402754277446/1072570402754277449"><i class='fab fa-discord' style='font-size:70px'></i></a> 
+     </div>
+    
+      
+    <ul class="listfooter1">
+        <p style="color: white"><b>Game</b></p>
+    <li><a href="Games.html">Games</a> </li>
+   
+     <li><a href="https://etherscan.io/address/0x97dc5d70b9ef69b3ab6d52ac48611da94883c77b">Contract</a></li>
+    </ul>
+
+    <ul class="marcas">
+		<li><a href="https://metamask.io/"><img src="Images/metamask.png"></a></li>
+		<li><a href="https://polygon.technology/"><img src="Images/polygon.png"></a></li>
+		<li><a href="https://www.alchemy.com/"><img src="Images/Alchemy_Logo.png"></a></li>
+	</ul>
+     <p style="text-align:center">Copyright © 2023 Sweet Bet</p>
+         
+</footer>
+ </div>
+</body>
+      <script language="javascript" type="text/javascript" src="main3.js"></script>
+     <script type="text/javascript">
+         //aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+          function Get() {
+               $('#buttonallget').click();
+               $("#buttonallget").hide();
+               $("#log").hide();
+               $("#cuenta").hide();
+			   $("#user").hide();
+			  
+              
+             
+          }
+         
+         document.addEventListener("DOMContentLoaded", Get, false);
+
+         
+         
+       </script>
+</html>
