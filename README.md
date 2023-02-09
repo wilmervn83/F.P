@@ -12,7 +12,7 @@ The front end is old school, I still don't know how to work well with React :( t
 
 To interact with my Dapp in the Mumbai testnet you can enter the following link:
 
-https://wilmervn83.github.io/FinalProyectAlchemy/SweetBetPolygon/public/index.html
+https://wilmervn83.github.io/F.P/SweetBetPolygon/public/index.html
 
 
 
