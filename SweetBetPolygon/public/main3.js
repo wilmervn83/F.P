@@ -1512,7 +1512,7 @@ var UserInterval = setInterval(async function () {
 					} else if (result[5] == 0 && parseInt(result[4][1]) == parseInt(user[0]) ) {
 						
 					setTimeout(function(){ $("#winner2").show() }, 6000);
-					setTimeout(function(){ $("#winner2").show() }, 6000);
+					setTimeout(function () { $("#imagenM2").show() }, 6000);
 					}
 					if(parseInt(result[4][1]) == parseInt(user[0]) && result[5] == 1) {
 						
